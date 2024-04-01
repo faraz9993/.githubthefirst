@@ -6,12 +6,12 @@ on:
       - 'main'
   pull_request:
     branches:
-      - 'mian'
+      - 'main'
     types: [created, edited]
 
 jobs:
-  if: github.event.pull_request.merged == true
   sonarcloud:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
