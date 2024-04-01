@@ -1,8 +1,16 @@
 name: SonarCloud
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'mian'
+    types: [created, edited]
 
 jobs:
+  if: github.event.pull_request.merged == true
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
