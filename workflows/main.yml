@@ -1,0 +1,26 @@
+name: SonarCloud
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'mian'
+    types: [created, edited]
+
+jobs:
+  if: github.event.pull_request.merged == true
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: SonarCloud Analysis
+        uses: sonarsource/sonarcloud-github-action@v2.1.1
+        with:
+          args: >
+            -Dsonar.organization=faraz9993
+            -Dsonar.projectKey=faraz9993_.github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
