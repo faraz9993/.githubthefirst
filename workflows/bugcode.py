@@ -28,7 +28,7 @@ def tryToDoSomething(self, value):
         traceback.print_exc()
 
 
-def setGlobal(value=None):
+def setGlobal(value=Non):
     metaslash = value
     print('Old MetaSlash value is:', metaslash)
     useless = Nothing(5)
